@@ -1,5 +1,46 @@
+-- Aurora Hub
+-- Start
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
 local Window = OrionLib:MakeWindow({Name = "Tutorial Hub", HidePremium = false, IntroText = "Test", SaveConfig = true, ConfigFolder = "OrionTest"})
+
+OrionLib:MakeNotification({
+	Name = "Welcome!",
+	Content = "Welcome to Aurora Hub Please Enjoy!",
+	Image = "rbxassetid://4483345998",
+	Time = 7
+})
+
+-- Tabs
+
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+-- functions
+
+-- UJD Section
+
+local UJD = MainTab:AddSection({
+	Name = "UJD"
+})
+
+MainTab:AddButton({
+	Name = "Infected Menu",
+	Callback = function()
+      		print("still working on it")
+  	end    
+})
+
+Tab:AddToggle({
+	Name = "Safe | Auto Blueberry Sans Exp",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+        print("still working on it")
+	end    
+})
 
 OrionLib:Init()
