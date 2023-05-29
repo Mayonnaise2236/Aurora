@@ -3,6 +3,3 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Tutorial Hub", HidePremium = false, IntroText = "Test", SaveConfig = true, ConfigFolder = "OrionTest"})
 
 OrionLib:Init()
-
-
-
