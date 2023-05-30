@@ -1,4 +1,4 @@
--- AurowawwraHub
+-- Aurora Hub
 
 -- Start
 
@@ -23,3 +23,95 @@ OrionLib:MakeNotification({
 local rootPart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
 
 local Blueberry = game:GetService("workspace").TempFightStuff:WaitForChild("BlueBerry")
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local BlackApple = game.ReplicatedStorage:FindFirstChild("BlackApple")
+
+-- values
+
+_G.autoSafeExp = false
+
+-- functions
+
+function autoSafeExp()
+
+  while _G.autoSafeExp == true do
+
+    rootPart.CFrame = Blueberry.CFrame
+
+    wait(0.04)
+
+    VU:ClickButton1(Vector2.new(0,0))
+
+  end
+
+end
+
+-- Tabs
+
+local UJDTab = Window:MakeTab({
+
+	Name = "UJD",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+-- UJD Section
+
+local UJDSection = UJDTab:AddSection({
+
+	Name = "Undertale | Judgement Day"
+
+})
+
+-- UJD Jobs
+
+UJDTab:AddButton({
+
+	Name = "Infected Menu",
+
+	Callback = function()
+
+      		print("still working on it")
+
+  	end    
+
+})
+
+UJDTab:AddButton({
+
+	Name = "Fun Apple",
+
+	Callback = function()
+
+      	BlackApple:Clone()
+
+        BlackApple.Parent = Players.LocalPlayer.Backpack
+
+  	end    
+
+})
+
+  
+
+UJDTab:AddToggle({
+
+	Name = "Safe | Auto Blueberry Sans Exp",
+
+	Default = false,
+
+	Callback = function(Value)
+
+		_G.autoSafeExp = Value
+
+        autoSafeExp()
+
+	end    
+
+})
+
+OrionLib:Init()
