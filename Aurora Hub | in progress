@@ -1,0 +1,117 @@
+-- Aurora Hub
+
+-- Start
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Aurora Hub", HidePremium = false, IntroText = "Aurora!", SaveConfig = true, ConfigFolder = "AuroraConfig"})
+
+OrionLib:MakeNotification({
+
+	Name = "Welcome!",
+
+	Content = "Welcome to Aurora Hub Please Enjoy!",
+
+	Image = "rbxassetid://4483345998",
+
+	Time = 5
+
+})
+
+-- locals
+
+local rootPart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
+local Blueberry = game:GetService("workspace").TempFightStuff:WaitForChild("BlueBerry")
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local BlackApple = game.ReplicatedStorage:FindFirstChild("BlackApple")
+
+-- values
+
+_G.autoSafeExp = false
+
+-- functions
+
+function autoSafeExp()
+
+  while _G.autoSafeExp == true do
+
+    rootPart.CFrame = Blueberry.CFrame
+
+    wait(0.04)
+
+    VU:ClickButton1(Vector2.new(0,0))
+
+  end
+
+end
+
+-- Tabs
+
+local MainTab = Window:MakeTab({
+
+	Name = "Main",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+-- UJD Section
+
+local UJD = MainTab:AddSection({
+
+	Name = "UJD"
+
+})
+
+-- UJD Jobs
+
+MainTab:AddButton({
+
+	Name = "Infected Menu",
+
+	Callback = function()
+
+      		print("still working on it")
+
+  	end    
+
+})
+
+MainTab:AddButton({
+
+	Name = "Fun Apple",
+
+	Callback = function()
+
+      	BlackApple:Clone()
+
+        BlackApple.Parent = Players.LocalPlayer.Backpack
+
+  	end    
+
+})
+
+  
+
+Tab:AddToggle({
+
+	Name = "Safe | Auto Blueberry Sans Exp",
+
+	Default = false,
+
+	Callback = function(Value)
+
+		_G.autoSafeExp = Value
+
+        autoSafeExp()
+
+	end    
+
+})
+
+OrionLib:Init()
