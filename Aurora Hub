@@ -4,7 +4,7 @@
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Aurora Hub", HidePremium = false, IntroText = "Aurora!", SaveConfig = true, ConfigFolder = "AuroraConfig"})
+local Window = OrionLib:MakeWindow({Name = "Aurora Hub", HidePremium = false, IntroText = "Aurora!", SaveConfig = true, ConfigFolder = "OrionTest"})
 
 OrionLib:MakeNotification({
 
@@ -18,35 +18,11 @@ OrionLib:MakeNotification({
 
 })
 
--- locals
-
-local rootPart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-
-local Blueberry = game:GetService("workspace").TempFightStuff:WaitForChild("BlueBerry")
-
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local BlackApple = game.ReplicatedStorage:FindFirstChild("BlackApple")
-
 -- values
 
-_G.autoSafeExp = false
+_G.autoSafeExp = true
 
--- functions
-
-function autoSafeExp()
-
-  while _G.autoSafeExp == true do
-
-    rootPart.CFrame = Blueberry.CFrame
-
-    wait(0.04)
-
-    VU:ClickButton1(Vector2.new(0,0))
-
-  end
-
-end
+_G.autoEquipKnife = true
 
 -- Tabs
 
@@ -96,7 +72,27 @@ UJDTab:AddButton({
 
 })
 
-  
+UJDTab:AddToggle({
+
+	Name = "Auto Equip Knife",
+
+	Default = false,
+
+	Callback = function(Value)
+
+      _G.autoEquipKnife = Value
+
+      if _G.autoEquipKnife == true then
+
+        autoEquipKnife()
+
+      end
+
+      wait()
+
+	end    
+
+})
 
 UJDTab:AddToggle({
 
@@ -106,12 +102,66 @@ UJDTab:AddToggle({
 
 	Callback = function(Value)
 
-		_G.autoSafeExp = Value
+      _G.autoSafeExp = Value
+
+      if _G.autoSafeExp == true then
 
         autoSafeExp()
+
+      end
+
+      wait()
 
 	end    
 
 })
+
+-- locals
+
+local rootPart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Blueberry = game:GetService("workspace").TempFightStuff:WaitForChild("BlueBerry")
+
+local BlackApple =
+
+game.ReplicatedStorage:FindFirstChild("BlackApple")
+
+local RealKnife = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("RealKnife")
+
+-- [ [ Functions ] ]
+
+function autoSafeExp()
+
+  while autoSafeExp == true do 
+
+    print("i said what")
+
+  end
+
+end
+
+function autoEquipKnife()
+
+  while _G.autoEquipKnife == true do
+
+    if RealKnife.Parent ==
+
+      game.Players.LocalPlayer.Backpack then
+
+    repeat wait()
+
+RealKnife.Parent = game.workspace.LocalPlayer.Character
+
+      until RealKnife.Parent ==
+
+game.ReplicatedStorage:GetChlid("RealKnife")
+
+    end
+
+  end
+
+end  
 
 OrionLib:Init()
